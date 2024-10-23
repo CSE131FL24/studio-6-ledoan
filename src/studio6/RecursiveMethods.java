@@ -1,5 +1,7 @@
 package studio6;
 
+import java.awt.Color;
+
 import edu.princeton.cs.introcs.StdDraw;
 
 public class RecursiveMethods {
@@ -12,9 +14,15 @@ public class RecursiveMethods {
 	 *         ...)
 	 */
 	public static double geometricSum(int n) {
-		
+	
 			// FIXME compute the geometric sum for the first n terms recursively
-			return 0;
+		double sum = 0.0;
+		
+		for(int power = 1; power <= n; power++) {
+			sum = sum + 1 / (Math.pow(2, power));
+		}
+		
+			return sum;
 		
 	}
 	
@@ -31,8 +39,30 @@ public class RecursiveMethods {
 			double radiusMinimumDrawingThreshold) {
 		
 		// FIXME
+		
+		double bound = 5.0;
+		StdDraw.setXscale(-bound, bound);
+		StdDraw.setYscale(-bound, bound);
+		
+		if (radius < radiusMinimumDrawingThreshold) {
+			return;
+		}
+		
+		StdDraw.setPenColor(Color.BLACK);
+		StdDraw.circle(xCenter, yCenter, radius);
+		
+		circlesUponCircles(0.0, 0.0, 1.1, 1.0);
+		circlesUponCircles(0.0, 0.0, 1.1, 1.0/3.0);
+		circlesUponCircles(0.0, 0.0, 1.1, 1.0/9.0);
+		circlesUponCircles(0.0, 0.0, 1.1, 1.0/27.0);
+		circlesUponCircles(0.0, 0.0, 1.1, 1.0/81.0);
+		
 	}
 
+	public static int[] reversed(int[] array) {
+		
+	}
+	
 	/**
 	 * This method uses recursion to create a reverse of the given array
 	 * 
@@ -42,6 +72,9 @@ public class RecursiveMethods {
 	public static int[] toReversed(int[] array) {
 		
 			// FIXME create a helper method that can recursively reverse the given array
+		
+		int reverse[] = new int[array.length];
+		
 			return new int[0];
 		
 	}
